@@ -18,21 +18,9 @@ fun main() {
         return depthIncreased
     }
 
-    fun part2(seaFloorDepth: List<Int>): Int {
-        var lastTotal = 0
-        var depthIncreased = -1
+    fun part2(seaFloorDepth: List<Int>): Int =
+        part1(seaFloorDepth.windowed(3, 1, false) { it.sum() })
 
-        seaFloorDepth.windowed(3, 1, false) {
-            val totalWindow = it.sum()
-            if (totalWindow > lastTotal) {
-                depthIncreased++
-            }
-            lastTotal = totalWindow
-        }
-
-
-        return depthIncreased
-    }
 
     val input = readInput("day01/Day01")
     val seaFloorDepth = input.map { it.toInt() }
