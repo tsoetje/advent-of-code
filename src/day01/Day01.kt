@@ -4,15 +4,12 @@ import readInput
 
 fun main() {
     fun part1(seaFloorDepth: List<Int>): Int {
-
         var depthIncreased = 0
+
         seaFloorDepth.forEachIndexed { index, depth ->
             if (index == 0) return@forEachIndexed
 
-            val previousDepth = seaFloorDepth[index - 1]
-            if (depth > previousDepth) {
-                depthIncreased++
-            }
+            if (depth > seaFloorDepth[index - 1]) depthIncreased++
         }
 
         return depthIncreased
